@@ -7,5 +7,5 @@
   "type": "clock",
   "tags": "clock",
   "supports": ["BANGLEJS2"],
-  "allow_emulator" = true
+  "allow_emulator": true
 }
