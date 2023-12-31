@@ -3,7 +3,7 @@
   "name": "Tamagotchi Clock",
   "version": "1.0",
   "description": "A clock to mimic the 1996 Tamagotchi",
-  "screenshots": [{"url":"screenshot.png"}].
+  "screenshots": [{"url":"screenshot.png"}],
   "type": "clock",
   "tags": "clock",
   "supports": ["BANGLEJS2"],
