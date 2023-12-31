@@ -1,11 +1,15 @@
 {
   "id": "tamagotchi",
   "name": "Tamagotchi Clock",
-  "version": "1.0",
+  "version": "0.1",
   "description": "A clock to mimic the 1996 Tamagotchi",
   "screenshots": [{"url":"screenshot.png"}],
   "type": "clock",
   "tags": "clock",
   "supports": ["BANGLEJS2"],
-  "allow_emulator": true
+  "allow_emulator": true,
+  "storage": [
+    {"name": "tamagotchi.app.js", "url": "app.js"},
+    {"name": "tamagotchi.img", "url": "app-icon.js", "evaluate": true}
+  ]
 }
