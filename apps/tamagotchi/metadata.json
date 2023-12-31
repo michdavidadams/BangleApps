@@ -1,0 +1,10 @@
+{
+  "id": "tamagotchi",
+  "name": "Tamagotchi Clock",
+  "version": "1.0",
+  "description": "A clock to mimic the 1996 Tamagotchi",
+  "type": "clock",
+  "tags": "clock",
+  "supports": ["BANGLEJS2"],
+  "allow_emulator" = true
+}
