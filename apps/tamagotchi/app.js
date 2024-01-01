@@ -6,29 +6,24 @@ let drawTimeout;
 let draw = function() {
   let x = g.getWidth();
   let y = g.getHeight();
-  let eggInner = 10; // max size of inner shell
   g.reset().clearRect(Bangle.appRect); // clear whole background (w/o widgets)
   
   // Draw egg shell
-  //g.setColor(g.theme.bg);
-  //g.setColor("#ff0000");
-  //g.fillRect(0, 0, x, y); //outer shell
-  //g.setColor(g.theme.bg2);
-  g.setColor(g.theme.bg2);
+  g.setColor(0, 0, 1);
   g.fillRect(0, 0, x, y); // inner shell
   // Draw egg cracks
   g.setColor(0, 0, 0);
   // Top
   g.fillPoly([
-    0,0,
-    x*0.1,9,
-    x*0.2,0,
-    x*0.4,7,
-    x*0.5,0,
-    x*0.6,8,
-    x*0.8,0,
-    x*0.9,4,
-    x,0
+    0,25,
+    x*0.1,34,
+    x*0.2,25,
+    x*0.4,35,
+    x*0.5,25,
+    x*0.6,33,
+    x*0.8,25,
+    x*0.9,30,
+    x,25
   ]);
   // Right
   g.fillPoly([
@@ -53,7 +48,7 @@ let draw = function() {
     x,y
   ]);
   // Left
-    g.fillPoly([
+  g.fillPoly([
     0,0,
     9,y*0.1,
     0,y*0.2,
@@ -64,10 +59,15 @@ let draw = function() {
     9,y*0.8,
     0,y
    ]);
+  g.fillRect(0, 0, x, 25); // Top black bar of egg cracks
   
-  // Main background
+  // Activities bars
+  g.setColor(1, 1, 0);
+  g.fillRect(10, 40, x-10, y-10);
+  
+    // Main background
   g.setColor(1, 1, 1);
-  g.fillRect(10, 10, x-10, y-10);
+  g.fillRect(10, 60, x-10, y-30);
 
   // Draw tama
   g.setColor(0, 0, 0);
@@ -75,7 +75,7 @@ let draw = function() {
   width : 70, height : 81, bpp : 3,
   transparent : 1,
   buffer : require("heatshrink").decompress(atob("kmSpMkwAHChIIDAQgVDiQLGkALCgQLGAQNABoUEBY1IEwYyHkmQBgUBEw5WHAQoNDBY5oXHwY1KBowpDQAYADLgp0EKAwLLOgxQHBZZ0FAAa5DBZZcNNEQANNBYANNBYANNBYAOND7LFARZiBNArLFARZiBNArLFARZiCApACONH8kNwxcBgRoPNw4HBNB9ANwxcBNB+QNwxcBhJohdKRWGdKZWFdKZWFAALpRX4xojBYZcJNBYLDLhJoLBYZcKBZxcONGMCCIS5ROgQFIdKBKDKBLpLKwYFFARpiFNDAXFDpZEBMQqAFAoMJDRALDMQdAQAgFBX4IaHBYZiDyCAEAoMAJpALDNBZcCDQ4LDNBabJNA6MDQBZoDAAbRFAAKAJNAgADa4qAKNAgADWYYHDJpRoCAAZoTIghoGXIgCMaIgFGARxoHAoYCNaI4FDARpiFNDJQEDRp6JKAIyNoB6IKALRLAQOQPRBWBgRoNPRJozBYZQBNwIADMQILDOhZQBYoQACMQILDOhZQCDIhiCBYZ0LXIJuBAAZiBBYZ0LNDoRDbqJoEbqpoDbqpoDPQYFFNEmAcYJiGHwJoNCIbLBCJpQJZYIaWgBQCDSpmBGSxoSoAA="))
-}, (x/4)+10, (y/4)+10);
+}, (x/4)+10, (y/4)+20);
 
   // queue next draw
   if (drawTimeout) clearTimeout(drawTimeout);
