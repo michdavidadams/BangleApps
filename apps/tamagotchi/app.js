@@ -1,3 +1,14 @@
+// Public Pixel font
+Graphics.prototype.setFontPublicPixelz84yD = function() {
+  // Actual height 18 (19 - 2)
+  return this.setFontCustom(
+    E.toString(require('heatshrink').decompress(atob('AG0P+EA/4ECgf/88//1zAgwTGGK0+nED8eAAgX8gE/4AECCZM//ATEFhkOgPA8Ecn//+f//4EJCaHwBwITEGIkB4PAjkch/x4H/AgfnDANx4Y2HuIODv4EB/gEC8Hgh0OgAEBMYsAuHgg8/4PzzkfnPBJQIdBh4iB/EAv0Ag/ggJABj5FBLwP8aIPOuZeBn0B4fgjAxFUoPj/iBHzkHnPAegOHXoIECh0+uHj84dBf4rhFJQIAPfwv/d4L+IADEB/0Aj6GBAgP//CGBwZtBQIPz8EfnEAueAg4EGuAxQDpazBj4xEHYOAIAeAJQgAQXoMDzgEDVogEBhwRB8AJFAgQYDSyQjEAg0f/8B//wAgITMADED88An1wfQJfFADpPMAiYAYj8AgPwAg4AYDokPAgP4AgOAgZPBnwNB8ASFwASCn4SFABkP/+A//4n//+f//4ECwE/nEDAgcAueAg4nBufgg4YG+AiBE4g2JEQgEHHYgEINwMHD4NwAhDzDgfw8E/n0P+fg/4ECw/nnF+uYECuAEBg85+Fzz5jBAgP8AgPAuBtBfoIECGIsB4Hgjk+gIxBj4ECE4IsEAhJoH/H8h+P4H4So1+NgLqB/zvDAgP48EPx0DAgM+PAPg8E4AgOAPoKfKAgQwEn/B4f8jgEB+f8j4ECziLB4FzAhgnBz//AgWH/k4v/DwZjFh//wH//BFHSqE+v/z87gBv7qB/EOh5xBGIs+gFzaILHHwH4nEPwZKBnE+geD8D5BgefQIIEB/gEB4CkBE4QECMYuPEwJjZfJH4E4gxFwPA/DHB+IYBY4IEBGLH//i9B4C9BMgoALj8fgPx+AEGDqIATj8cFgPAGMsOAQLXBAgLmEj//gKGBAgXzAgM/HYUcg8B4FwGKNzwC3BAjYwQIoRKEKgRZCMYptCOQYsBPgaPQnyPBAgmH884v1zAg9wBwIwB+EDHQXwgH4gEPHQIEBAAkP/+A//4n//+f//4ECQQmf885/wECnEORgPnn4JB/4ECuA2Bh42BAgKQFQIcHAgIxBHYPz8Hgn0ONoPgFgMDwAJFIoIYEVJAADLw4EEw5jBuCQBAhQYG+H4/EPx+AAgKVG4H//iVMAhc+gJ3Bj4EB+HgjkOgPA8EYMaIsQSoZeBdQMf8EB/0AAgKViAgRFLGKUAEQMDAh2AAgMAAg7HGwB3BSphjMv5FB/4EJMaHwOwVwgAELQJgEBMgoADVJIECERZ3HY5aWBTwP4AgPwgBABAgQTCdRg7IXAWDAgKVWj/ggP+AgUPx+A/AnBx/z8Efn0BNA4xRYZgEUGJ6eCUYKeBgI6Bj6tFfKYxYgE+gED8AxTh//wDWDCYr0LfJfwEQInEMaHzw8AnFwgYELn/wgZYBAgKfCUghjX884hwEDh4OBJQgdCBAPnh/+uAEBMa/gnF+Agd/4eH/gYDn8/+bgBg5jBuAEBMYuB4H4jk/+IYBj4ECw5jBuFzAhc+v/z8//AgPw8H8h0P4HgSwwADRYMDUwIEHORKpFDpSVG4f/PggdCcIJ3CuAELHZAiCE4QxF/BUBwE//wEB8AEBBoJ3BV4MA/8AgI7Bj4JDegWDDAYiDE4RjHQJPwgfggE+FYPgGAgJCBwKfMAgIxEn0B+fgegPP+f8CYPP+H//EPJoIEBgJtBGwIJEE4QYDEQQnEfJM/4EDUYIECIgM/M4JKCv/wg4EFLIYTDDojGFgE4HYOAj84h4EB/4ECw4EBv/zz//nP+uef84nBuf/fIIEB/gEB4Fz8EHUYIECMZSuNnAdBwEHAhdwFRIAGcgYECgH4gEPwEAQwL5JJYIPBCggPBCgoAHKiAECO5YsBABQ='))),
+    32,
+    20,
+    20|65536
+  );
+};
+
 { // must be inside our own scope here so that when we are unloaded everything disappears
   // we also define functions using 'let fn = function() {..}' for the same reason. function decls are global
 let drawTimeout;
@@ -65,9 +76,13 @@ let draw = function() {
   g.setColor(1, 1, 0);
   g.fillRect(10, 40, x-10, y-10);
   
-    // Main background
+  // Main background, clear looks better but the original had pink and cyan patterned background
   g.setColor(1, 1, 1);
   g.fillRect(10, 60, x-10, y-30);
+  
+  // Draw time and date
+  var date = new Date();
+  
 
   // Draw tama
   g.setColor(0, 0, 0);
